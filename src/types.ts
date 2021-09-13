@@ -93,7 +93,7 @@ interface Links {
   };
 }
 
-interface Mention {
+export interface Mention {
   id: string;
   alert_id: number;
   title: string;
