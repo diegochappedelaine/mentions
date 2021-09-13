@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { User } from "types";
+import { User, Notifications } from "types";
 import { API_URL } from "api/end-points";
 
-function useGetNotifications<T>(user: User) {
+function useGetNotifications(user: User) {
   const [error, setError] = useState<unknown>();
   const [loading, setLoading] = useState<boolean>(true);
-  const [notifications, setNotifications] = useState<T>();
+  const [notifications, setNotifications] = useState<Notifications>();
 
   useEffect(() => {
     const fetchDatas = async () => {
