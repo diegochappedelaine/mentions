@@ -8,7 +8,6 @@ type NotificationsSectionProps = {
 };
 
 const NotificationsWrapper = styled.ul`
-  height: 100vh;
   max-width: 600px;
   margin: 0 auto;
   list-style: none;

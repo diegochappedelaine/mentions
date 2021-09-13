@@ -6,11 +6,7 @@ const HomePage = () => {
 
   if (!user) return null;
 
-  return (
-    <div>
-      <NotificationsSection user={user} />
-    </div>
-  );
+  return <NotificationsSection user={user} />;
 };
 
 export default HomePage;

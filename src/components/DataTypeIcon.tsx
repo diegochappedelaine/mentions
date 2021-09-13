@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { randomElementFromArray } from "utils";
 
 const ImageContainer = styled.div<{ $backgroundColor: string }>`
-  height: 24px;
-  width: 24px;
+  height: 32px;
+  width: 32px;
   position: absolute;
   right: 15px;
   bottom: 45px;
@@ -14,6 +14,11 @@ const ImageContainer = styled.div<{ $backgroundColor: string }>`
   border: 3px solid white;
   display: grid;
   place-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 const DataTypes = [

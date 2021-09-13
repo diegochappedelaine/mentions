@@ -1,55 +1,8 @@
-import styled from "styled-components";
 import { Mention } from "types";
 import { ProfilePicture } from "components";
+import { TextContainer, TitleSection, Link } from "./Notification.styled";
 
 type NotificationProps = { mention: Mention };
-
-const Container = styled.li``;
-
-const TextContainer = styled.div`
-  width: 100%;
-
-  > h2 {
-    font-weight: 500;
-    font-size: 1.4rem;
-    margin-bottom: 8px;
-  }
-
-  > p {
-    line-height: 1.4rem;
-    height: 44px;
-    overflow: hidden;
-    color: #909da9;
-  }
-`;
-
-const TitleSection = styled.div`
-  margin: 8px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  > h3 {
-    color: grey;
-  }
-
-  > p {
-    color: #38a1de;
-  }
-`;
-
-const Link = styled.a`
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 1px solid #edf1f5;
-  padding: 24px;
-  display: flex;
-  transition: background-color ease-out 0.2s;
-
-  &:hover {
-    background-color: #f7f9fc;
-  }
-`;
 
 const Notification: React.FC<NotificationProps> = ({ mention }) => {
   const publish_date = new Date(mention.published_at).toLocaleDateString(
@@ -61,7 +14,7 @@ const Notification: React.FC<NotificationProps> = ({ mention }) => {
   );
 
   return (
-    <Container>
+    <li>
       <Link href={mention.clickable_url} target="_blank" rel="noopener">
         <ProfilePicture src={mention.picture_url} alt={mention.source_name} />
         <TextContainer>
@@ -73,7 +26,7 @@ const Notification: React.FC<NotificationProps> = ({ mention }) => {
           <p>{mention.description_medium}</p>
         </TextContainer>
       </Link>
-    </Container>
+    </li>
   );
 };
 
