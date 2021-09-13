@@ -4,11 +4,7 @@ import { ProfilePicture } from "components";
 
 type NotificationProps = { mention: Mention };
 
-const Container = styled.li`
-  border-bottom: 1px solid #edf1f5;
-  padding: 24px;
-  display: flex;
-`;
+const Container = styled.li``;
 
 const TextContainer = styled.div`
   width: 100%;
@@ -42,6 +38,19 @@ const TitleSection = styled.div`
   }
 `;
 
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #edf1f5;
+  padding: 24px;
+  display: flex;
+  transition: background-color ease-out 0.2s;
+
+  &:hover {
+    background-color: #f7f9fc;
+  }
+`;
+
 const Notification: React.FC<NotificationProps> = ({ mention }) => {
   const publish_date = new Date(mention.published_at).toLocaleDateString(
     "en-gb",
@@ -53,15 +62,17 @@ const Notification: React.FC<NotificationProps> = ({ mention }) => {
 
   return (
     <Container>
-      <ProfilePicture src={mention.picture_url} alt="" />
-      <TextContainer>
-        <TitleSection>
-          <h3>{mention.source_type}</h3>
-          <p>{publish_date}</p>
-        </TitleSection>
-        <h2>{mention.source_name}</h2>
-        <p>{mention.description_medium}</p>
-      </TextContainer>
+      <Link href={mention.clickable_url} target="_blank" rel="noopener">
+        <ProfilePicture src={mention.picture_url} alt={mention.source_name} />
+        <TextContainer>
+          <TitleSection>
+            <h3>{mention.source_type}</h3>
+            <p>{publish_date}</p>
+          </TitleSection>
+          <h2>{mention.source_name}</h2>
+          <p>{mention.description_medium}</p>
+        </TextContainer>
+      </Link>
     </Container>
   );
 };

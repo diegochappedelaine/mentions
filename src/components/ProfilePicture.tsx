@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { DataTypeIcon } from "components";
+
+const Container = styled.div`
+  position: relative;
+`;
 
 const Picture = styled.img`
   border: 1px solid #e7e7e8;
@@ -28,7 +33,12 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, alt }) => {
     event.target.src = placeholder;
   };
 
-  return <Picture onError={addDefaultSrc} src={src || placeholder} alt={alt} />;
+  return (
+    <Container>
+      <Picture onError={addDefaultSrc} src={src || placeholder} alt={alt} />
+      <DataTypeIcon />
+    </Container>
+  );
 };
 
 export default ProfilePicture;
