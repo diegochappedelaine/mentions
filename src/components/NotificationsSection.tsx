@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Notification } from "components";
+import { Notification, Loading } from "components";
 import { useGetNotifications } from "hooks";
 import { User } from "types";
 
@@ -19,9 +19,7 @@ const NotificationsSection: React.FC<NotificationsSectionProps> = ({
   const { notifications, error, loading } = useGetNotifications(user);
 
   if (error) return <p>Error</p>;
-  if (loading) return <p>Loading</p>;
-
-  console.log(notifications);
+  if (loading) return <Loading />;
 
   return (
     <NotificationsWrapper>
