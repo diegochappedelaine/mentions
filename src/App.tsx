@@ -1,7 +1,9 @@
 import { useAppContext } from "provider/AppProvider";
+import { useGetNotifications } from "hooks";
 
 const App = () => {
   const { user } = useAppContext();
+  const { notifications, error, loading } = useGetNotifications(user!);
 
   console.log(user);
   return (
