@@ -8,6 +8,7 @@ const Picture = styled.img`
   min-width: 48px;
   width: 48px;
   object-fit: cover;
+  margin-right: 24px;
 `;
 
 type ProfilePictureProps = {
